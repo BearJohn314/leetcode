@@ -1,8 +1,7 @@
 var romanToInt = function(s) {
-    let roman = s.split("")
     let num = []
-    for (let i=0; i<roman.length; i++) {
-        switch (roman[i]) {
+    for (let i=0; i<s.length; i++) {
+        switch (s[i]) {
             case "I": 
                 num.push(1)
                 break
@@ -41,6 +40,4 @@ var romanToInt = function(s) {
         }
     }
     return number
-    console.log(number)
 };
-
