@@ -19,3 +19,15 @@ var isPalindrome = function(head) {
     }
     return true
 };
+
+//second approach
+// var longestPalindrome = function(s) {
+//     if (isPalindrome(s)) return s
+//     let length = s.length - 1
+//     while (true) {
+//         for (let i = 0; i <= s.length - length; i++) {
+//         if (isPalindrome(s.slice(i , i + length))) return s.slice(i, i + length)
+//         }
+//         length--
+//     }
+// };  
