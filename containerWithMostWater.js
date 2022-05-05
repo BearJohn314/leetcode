@@ -22,33 +22,49 @@
 // };
 
 // Approach 2
+// var maxArea = function(height) {
+//     let left = 0;
+//     let right = height.length - 1;
+//     let area = Math.min(height[left], height[right]) * (right - left);
+//     let change = true;
+//     while (change) {
+//         change = false;
+//         if (height[left] < height[right]) {
+//             for (let i = left + 1; i <= right; i++) {
+//                 if (height[i] > height[left]) {
+//                     left = i;
+//                     area = Math.max(area, Math.min(height[left], height[right]) * (right - left));
+//                     change = true;
+//                     break;
+//                 }
+//             }
+//         } else {
+//             for (let j = right - 1; j >= left; j--) {
+//                 if (height[j] > height[right]) {
+//                     right = j;
+//                     area = Math.max(area, Math.min(height[left], height[right]) * (right - left));
+//                     change = true;
+//                     break;
+//                 }
+//             }
+//         }
+//     }
+//     return area;
+// };
+
+// O(n) solution
 var maxArea = function(height) {
     let left = 0;
     let right = height.length - 1;
     let area = Math.min(height[left], height[right]) * (right - left);
-    let change = true;
-    while (change) {
-        change = false;
+    while (left < right) {
         if (height[left] < height[right]) {
-            for (let i = left + 1; i <= right; i++) {
-                if (height[i] > height[left]) {
-                    left = i;
-                    area = Math.max(area, Math.min(height[left], height[right]) * (right - left));
-                    change = true;
-                    break;
-                }
-            }
+            left++;
+            
         } else {
-            for (let j = right - 1; j >= left; j--) {
-                if (height[j] > height[right]) {
-                    right = j;
-                    area = Math.max(area, Math.min(height[left], height[right]) * (right - left));
-                    change = true;
-                    break;
-                }
-            }
+            right--;
         }
+        area = Math.max(area, Math.min(height[left], height[right]) * (right - left));
     }
-    console.log(left, right)
     return area;
 };
