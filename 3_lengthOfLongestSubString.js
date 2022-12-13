@@ -1,3 +1,5 @@
+// Given a string s, find the length of the longest substring without repeating characters.
+
 function lengthOfLongestSubstring(s) {
     let seenIt = {};
     let p1 = 0;
