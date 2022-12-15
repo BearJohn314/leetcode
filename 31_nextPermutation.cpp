@@ -6,9 +6,10 @@ public:
     void nextPermutation(vector<int>& nums) {
         int length = nums.size();
         int lastAccending = -1;
-        for (int i = 0; i < length - 1; i++){
+        for (int i = length - 2; i >= 0; i--){
             if (nums[i+1]>nums[i]){
                 lastAccending = i;
+                break;
             }
         }
         if (lastAccending > -1){
