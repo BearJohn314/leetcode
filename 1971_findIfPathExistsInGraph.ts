@@ -10,6 +10,7 @@ function validPath(n: number, edges: number[][], source: number, destination: nu
         return true
     }
     let nextPositions = nextMove(edges,source)
+    // No destination is found in the edges reached from current position
     let remainingPositions = edges.filter(path=>!path.includes(source))
     while (nextPositions.size > 0){
         const iterator = nextPositions.values();
@@ -25,6 +26,7 @@ function validPath(n: number, edges: number[][], source: number, destination: nu
     return false
 };
 
+// The set of positions can be reached from current position 
 function nextMove(edges: number[][], source:number): Set<any> {
     let possibleMoves = edges.filter(path=>path.includes(source))
     let result = new Set()
